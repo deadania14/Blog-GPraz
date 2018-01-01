@@ -8,4 +8,4 @@ framework written in python. For now, the features are simple:
 * CKEditor WYSIWYG editor
 * etc
 
-![gpraz](https://gpraz.xyz/static/image/gpraz.png) {:height="24px"}
+<img src="https://gpraz.xyz/static/image/gpraz.png" height="24px">
