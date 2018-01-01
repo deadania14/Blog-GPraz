@@ -1,0 +1,79 @@
+body {
+    padding-top: 70px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.body {
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+nav.bg-dark {
+    background-color: #343a40f1 !important;
+}
+
+div.site-title {
+    margin-bottom: 30px;
+}
+
+/* ARTICLE CARD on index page */
+div.article-card {
+    padding: 10px 10px;
+    margin-bottom: 30px;
+    border: 1px solid #E0E0E0;
+}
+
+div.article-card:hover {
+    background-color: #EEEEEE;
+}
+
+div.article-card span.article-detail img {
+    width: 11px;
+}
+/* END ARTICLE CARD */
+
+/* ARTICLE page */
+div.article {
+    padding-top: 30px;
+    font-family: 'Cabin', sans-serif;    
+}
+
+div.article div.article-detail {
+    margin-bottom: 30px;
+}
+
+div.article div.article-detail p {
+    margin-bottom: 0;
+}
+
+div.article div.article-detail img {
+    width: 11px;
+}
+
+div.article div.article-body {
+    margin-bottom: 55px;
+}
+
+div.article div.article-comments {
+    /*border: 1px solid #E0E0E0;*/
+    padding: 1%;
+}
+/* END ARTICLE */
+
+div.recent-post-list {
+    margin-top: 35px;
+    border: 1px solid #E0E0E0;
+}
+
+div.footer {
+    margin-top: 55px;
+    min-height: 50px;
+}
+
+div.footer p {
+    text-align: center;
+}
