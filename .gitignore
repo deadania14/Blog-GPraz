@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+migrations
+tmp
+.ftpquota
+gpraz/secrets.py
+media
+static/admin
+static/ckeditor
+static/css/bootstrap*.css
+static/css/bootstrap*.map
+static/css/highlight*.css
+static/js/bootstrap*.js
+static/js/bootstrap*.map
+highlight*.js

@@ -36,7 +36,7 @@ def blog(request, year, slug):
     response = render(request, 'blog/view_article.html', context)
 
     # Page view counter cookies
-    if request.COOKIES.get("view_%s" % str(article.uuid)) is None:
+    if request.COOKIES.get("view_%s" % str(article.uuid)) is None and not request.user.is_authenticated:
         response.set_cookie("view_%s" % str(article.uuid), value=str(article.title), expires=(datetime.datetime.now()+datetime.timedelta(days=2)))
         article.views += 1
         article.save()

@@ -34,7 +34,9 @@
                     </div>
                     {% if user.is_authenticated %}
                     <div class="article-admin-options">
-                        <a href="{{article.get_admin_url}}" class="btn btn-primary btn-sm" role="button">Edit this article</a>
+                        <a href="{{article.get_admin_url}}" target="_blank" class="btn btn-primary btn-sm" role="button">Edit 
+this 
+article</a>
                     </div>
                     {% endif %}
 
