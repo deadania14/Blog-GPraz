@@ -1,11 +1,12 @@
 # GPraz.xyz #
 
-My personal [blog](https://gpraz.xyz) created using Django Framework, a 
-framework written in python. For now, the features are simple:
+My personal [blog](https://gpraz.xyz) created using Django Framework. For now, the features are simple:
 
-* View count (using cookies)
+* Article view count
 * Pagination
 * CKEditor WYSIWYG editor
+* Enhanced admin page
+* Frontend using bootstrap
 * etc
 
-<img src="https://gpraz.xyz/static/image/gpraz.png" height="24px">
+<img src="https://gpraz.xyz/static/image/gpraz.png" height="32px">
