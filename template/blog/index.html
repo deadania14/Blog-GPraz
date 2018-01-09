@@ -45,6 +45,9 @@
 
             <div class="col-md-4">
                 <div class="tag-list">
+                    {% if user.is_authenticated %}
+                        Welcome, {{user.username}}
+                    {% endif %}
                     <p>Tags:</p>
                     {% for tag in tags %}
                         <span><a href="{% url 'tag' tag_name=tag.name %}" class="btn btn-light btn-sm" role="button"><small>{{tag.name}}</small></a></span>
