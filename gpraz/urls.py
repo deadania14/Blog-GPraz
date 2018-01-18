@@ -17,7 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from blog import views
 import gpraz.secrets as secret
 
 admin.site.site_header = 'GPraz Administration'
@@ -25,9 +24,6 @@ admin.site.site_title = 'GPraz Admin'
 
 urlpatterns = [
     url(secret.ADMIN_URL, admin.site.urls),
-    url(r'^$', views.home, name='home'),
-    url(r'^blog/(?P<year>[0-9]{4})/(?P<slug>[\w\-]+)/', views.blog, name='article'), # todo
-    url(r'^archive/(?P<year>[0-9]{4})/', views.archive, name='archive'),
-    url(r'^tag/(?P<tag_name>[\w]+)/', views.tag, name='tag'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

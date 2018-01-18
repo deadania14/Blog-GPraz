@@ -11,20 +11,23 @@
                     <h1>{{article.title}}</h1>
                     <div class="article-detail">
                         <p><small>
-                            <img src="{% static 'image/calendar-2x.png' %}" alt="date-created" title="date-created"> {{article.created_at|date:'d M Y'}}
-                            <img src="{% static 'image/clock-2x.png' %}" alt="time-created" title="time-created"> {{article.created_at|date:'H:i'}}</small>
+                            <img src="{% static 'blog/image/calendar-2x.png' %}" alt="date-created" title="date-created"> 
+{{article.created_at|date:'d M Y'}}
+                            <img src="{% static 'blog/image/clock-2x.png' %}" alt="time-created" title="time-created"> 
+{{article.created_at|date:'H:i'}}</small>
                         </p>
                         <p><small>
-                            <img src="{% static 'image/person-2x.png' %}" alt="author" title="author"> gpraz</small>
+                            <img src="{% static 'blog/image/person-2x.png' %}" alt="author" title="author"> gpraz</small>
                         </p>
                         <p><small>
-                            <img src="{% static 'image/eye-2x.png' %}" alt="view-count" title="view-count"> {{article.views}}</small>
+                            <img src="{% static 'blog/image/eye-2x.png' %}" alt="view-count" title="view-count"> {{article.views}}</small>
                         </p>
                         <p><small>
                             Tags: 
                             {% for tag in article.tag.all %}
                                 <span>
-                                    <a href="{% url 'tag' tag_name=tag.name %}" class="btn btn-light btn-sm tag" role="button"><small>{{tag.name}}</small></a>
+                                    <a href="{% url 'blog:tag' tag_name=tag.name %}" class="btn btn-light btn-sm tag" 
+role="button"><small>{{tag.name}}</small></a>
                                 </span>
                             {% endfor %}</small>
                         </p>

@@ -35,7 +35,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('article', kwargs={'year': self.created_at.year, 'slug': self.slug})
+        return reverse('blog:article', kwargs={'year': self.created_at.year, 'slug': self.slug})
 
     def get_admin_url(self):
         content_type = ContentType.objects.get_for_model(self.__class__)
