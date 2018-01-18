@@ -43,8 +43,12 @@
     {% endblock %}
 
     <div class="container-fluid footer">
-        <p style="margin-bottom: 0;">&copy; 2016-{% now 'Y' %} G. Prasetyadi</p>
-        <p><small>contact me m[at]gpraz.xyz</small></p>
+        <p>&copy; 2016-{% now 'Y' %} G. Prasetyadi</p>
+        <p style="text-align: center;">
+            <a href="mailto:m@gpraz.xyz"><img src="{% static 'image/email.png' %}" width="24px"></a>
+            <a href="https://www.linkedin.com/in/gprasetyadi/" target="_blank"><img src="{% static 'image/linkedin.png' %}" width="24px"></a>
+            <a href="https://github.com/GottfriedCP" target="_blank"><img src="{% static 'image/github.png' %}" width="24px"></a>
+        </p>
         <p><small>Icons courtesy of <a href="https://useiconic.com/open">Open Iconic</a> by Iconic</small></p>
     </div>
 
