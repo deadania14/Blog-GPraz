@@ -7,6 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.text import slugify
 #from django.utils import timezone
 import hashlib
+import datetime
 from ckeditor.fields import RichTextField 
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -21,7 +22,7 @@ class Tag(models.Model):
 
 class Article(models.Model):
     """The article / blog post model. """
-    uuid = models.CharField(max_length=32, unique=True, null=True, editable=False)
+    uuid = models.CharField(max_length=56, unique=True, null=True, editable=False)
     title = models.CharField('Title', max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True, help_text='Automatically generated.')
     description = models.TextField(max_length=500)
@@ -42,7 +43,8 @@ class Article(models.Model):
 
     def save(self):
         if self.uuid is None:
-            self.uuid = hashlib.md5(str(self.created_at).encode('utf-8')).hexdigest()
+            string_seed = str(datetime.datetime.now()).encode('utf-8')
+            self.uuid = hashlib.sha224(string_seed).hexdigest()
         if self.slug is None:
             self.slug = slugify(self.title)
         super(Article, self).save()
