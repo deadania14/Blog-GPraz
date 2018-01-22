@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize', # specific for 'ifa' app
     'ckeditor',
     'ckeditor_uploader',
     'blog',
+    'ifa',
 ]
 
 MIDDLEWARE = [

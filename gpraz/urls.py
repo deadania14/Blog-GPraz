@@ -25,5 +25,6 @@ admin.site.site_title = 'GPraz Admin'
 urlpatterns = [
     url(secret.ADMIN_URL, admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^ifa/', include('ifa.urls')),
     url(r'', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
