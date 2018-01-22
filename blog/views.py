@@ -9,7 +9,7 @@ from blog.models import Tag, Article
 
 # Create your views here.
 def home(request):
-    tag_list = Tag.objects.filter(article__gt=0).distinct().order_by('name')
+    tag_list = Tag.objects.filter(article__gt=0, article__publish=True).distinct().order_by('name')
     article_list = Article.objects.exclude(publish=False).order_by('-created_at')
     paginator = Paginator(article_list, 10, 3)
 
@@ -47,7 +47,7 @@ def archive(request):
     return HttpResponse('todo')
 
 def tag(request, tag_name):
-    article_list = get_list_or_404(Article, tag__name=str(tag_name))
+    article_list = get_list_or_404(Article, tag__name=str(tag_name), publish=True)
     tag_list = Tag.objects.filter(article__gt=0).distinct().order_by('name')
 
     paginator = Paginator(article_list, 10, 3)
