@@ -7,11 +7,5 @@ gpraz/secrets.py
 media
 static/admin
 static/ckeditor
-bootstrap*.css
-bootstrap*.map
-highlight*.css
-bootstrap*.js
-bootstrap*.map
-highlight*.js
 
 ifa
