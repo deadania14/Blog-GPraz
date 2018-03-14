@@ -17,7 +17,7 @@
     <!-- END -->
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet"> 
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
-    <!--link rel="stylesheet" href="{% static 'blog/css/highlight-default.css' %}"-->
+    <link rel="stylesheet" href="{% static 'blog/css/solarized-dark.min.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
     <title>{% block title_bl %}GPraz{% endblock %}</title>
 </head>
@@ -56,7 +56,7 @@ width="24px"></a>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
-    <!--script src="{% static 'blog/js/highlight.pack.js' %}"></script-->
-    <script>/*hljs.initHighlightingOnLoad();*/</script>
+    <script src="{% static 'blog/js/highlight.pack.js' %}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
