@@ -20,6 +20,11 @@ div.site-title {
     margin-bottom: 30px;
 }
 
+/* FORM */
+div.contact-form-div {
+    max-width: 640px;
+}
+
 /* ARTICLE CARD on index page */
 div.article-card {
     padding: 10px 10px;

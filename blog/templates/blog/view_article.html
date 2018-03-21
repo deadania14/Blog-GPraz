@@ -3,6 +3,28 @@
 
 {% block title_bl %}{{article.title}} - GPraz{% endblock %}
 
+{% block head_bl %}
+    <meta name="description" content="{{article.description}}" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{article.title}}">
+    <meta itemprop="description" content="{{article.description}}">
+    <meta itemprop="image" content="https://gpraz.xyz{% static 'blog/image/header_image.png' %}">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{article.title}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://gpraz.xyz{{article.get_absolute_url}}" />
+    <meta property="og:image" content="https://gpraz.xyz{% static 'blog/image/header_image.png' %}" />
+    <meta property="og:description" content="{{article.description}}" />
+    <meta property="og:site_name" content="GPraz" />
+    <meta property="article:published_time" content="{{article.created_at}}" />
+    <meta property="article:modified_time" content="{{article.modified_at}}" />
+{% endblock %}
+
 {% block body_bl %}
     <div class="container">
         <div class="row">

@@ -9,6 +9,7 @@ from blog.models import Tag, Article
 
 # Create your views here.
 def home(request):
+    request.session['current_page'] = 'blog'
     tag_list = Tag.objects.filter(article__gt=0, article__publish=True).distinct().order_by('name')
     article_list = Article.objects.exclude(publish=False).order_by('-created_at')
     paginator = Paginator(article_list, 10, 3)
@@ -28,6 +29,7 @@ def home(request):
     return response
 
 def blog(request, year, slug):
+    request.session['current_page'] = 'blog'
     from django.conf import settings
     article = get_object_or_404(Article, created_at__year=int(year), slug=str(slug), publish=True)
     recent_articles = Article.objects.exclude(pk=article.pk).exclude(publish=False).order_by('-views', '-created_at')[:10]
@@ -44,9 +46,11 @@ def blog(request, year, slug):
     return response
 
 def archive(request):
+    # TODO
     return HttpResponse('todo')
 
 def tag(request, tag_name):
+    request.session['current_page'] = 'blog'
     article_list = get_list_or_404(Article, tag__name=str(tag_name), publish=True)
     tag_list = Tag.objects.filter(article__gt=0).distinct().order_by('name')
 

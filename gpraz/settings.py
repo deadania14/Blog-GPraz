@@ -26,7 +26,8 @@ SECRET_KEY = secret.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.gpraz.xyz',]
+# Delete localhost after maintenance
+ALLOWED_HOSTS = ['.gpraz.xyz', ]
 
 
 # Application definition
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'blog',
+    'contact',
     'ifa',
 ]
 
@@ -147,3 +149,11 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     }
 }
+
+# Email
+EMAIL_HOST = secret.EMAIL_HOST
+EMAIL_PORT = secret.EMAIL_PORT
+EMAIL_HOST_USER = secret.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = secret.EMAIL_HOST_PASSWORD
+EMAIL_USE_TLS = secret.EMAIL_USE_TLS
+EMAIL_USE_SSL = secret.EMAIL_USE_SSL
