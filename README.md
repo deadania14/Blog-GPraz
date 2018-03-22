@@ -9,4 +9,4 @@ My personal [blog](https://gpraz.xyz) created using Django Framework. For now, t
 * Frontend using bootstrap
 * etc
 
-<img src="https://gpraz.xyz/static/image/gpraz.png" height="32px">
+<img src="https://gpraz.xyz/static/blog/image/gpraz.png" height="32px">
