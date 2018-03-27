@@ -4,6 +4,8 @@ migrations
 tmp
 .ftpquota
 gpraz/secrets.py
+gpraz/settings.py.deploy
+gpraz/settings.py.debug
 media
 static/admin
 static/ckeditor
