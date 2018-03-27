@@ -56,6 +56,7 @@
                 <div class="tag-list">
                     {% if user.is_authenticated %}
                         Welcome, {{user.username}}
+                        <a href="{% url 'admin:blog_article_add' %}" class="btn btn-primary" role="button">Post new article</a>
                     {% endif %}
                     <p>Tags:</p>
                     {% for tag in tags %}
