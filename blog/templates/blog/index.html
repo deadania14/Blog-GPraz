@@ -14,16 +14,24 @@
             <div class="col-md-8">                
                 {% for article in articles %}
                     <div class="container article-card">
-                        <h2><a href="{{article.get_absolute_url}}">{{article.title}}</a></h2>
-                        <span class="article-detail">
-                            <img src="{% static 'blog/image/calendar-2x.png' %}">
-                            <small>{{article.created_at|date:'d M Y'}} </small>
-                            <img src="{% static 'blog/image/clock-2x.png' %}">
-                            <small>{{article.created_at|date:'H:i'}} </small>
-                            <img src="{% static 'blog/image/eye-2x.png' %}">
-                            <small>{{article.views}}</small>
-                        </span>
-                        <p>{{article.description}}</p>
+                        <article id="art-{{article.id}}">
+                            <header>
+                                <h2><a href="{{article.get_absolute_url}}">{{article.title}}</a></h2>
+                            </header>
+                            <section class="description">
+                                <p>{{article.description}}</p>
+                            </section>
+                            <footer>
+                                <span class="article-detail">
+                                    <img src="{% static 'blog/image/calendar-2x.png' %}">
+                                    <small>{{article.created_at|date:'d M Y'}} </small>
+                                    <img src="{% static 'blog/image/clock-2x.png' %}">
+                                    <small>{{article.created_at|date:'H:i'}} </small>
+                                    <img src="{% static 'blog/image/eye-2x.png' %}">
+                                    <small>{{article.views}}</small>
+                                </span>
+                            </footer>
+                        <article>                        
                     </div>
                 {% endfor %}
         

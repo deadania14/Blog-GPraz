@@ -48,6 +48,8 @@ div.article {
 }
 
 div.article div.article-detail {
+    background-color: #EEEEEE;
+    padding: 5px;
     margin-bottom: 30px;
 }
 
@@ -56,11 +58,11 @@ div.article div.article-detail p {
 }
 
 div.article div.article-detail img {
-    width: 11px;
+    width: 13px;
 }
 
 div.article div.article-body {
-    margin-bottom: 55px;
+    margin-bottom: 30px;
 }
 
 div.article div.article-comments {

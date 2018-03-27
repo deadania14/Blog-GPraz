@@ -21,8 +21,8 @@
     <meta property="og:image" content="https://gpraz.xyz{% static 'blog/image/header_image.png' %}" />
     <meta property="og:description" content="{{article.description}}" />
     <meta property="og:site_name" content="GPraz" />
-    <meta property="article:published_time" content="{{article.created_at}}" />
-    <meta property="article:modified_time" content="{{article.modified_at}}" />
+    <meta property="article:published_time" content="{{article.created_at|date:'c'}}" />
+    <meta property="article:modified_time" content="{{article.modified_at|date:'c'}}" />
 {% endblock %}
 
 {% block body_bl %}
@@ -30,62 +30,67 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="article">
-                    <h1>{{article.title}}</h1>
-                    <div class="article-detail">
-                        <p><small>
-                            <img src="{% static 'blog/image/calendar-2x.png' %}" alt="date-created" title="date-created"> 
-{{article.created_at|date:'d M Y'}}
-                            <img src="{% static 'blog/image/clock-2x.png' %}" alt="time-created" title="time-created"> 
-{{article.created_at|date:'H:i'}}</small>
-                        </p>
-                        <p><small>
-                            <img src="{% static 'blog/image/person-2x.png' %}" alt="author" title="author"> gpraz</small>
-                        </p>
-                        <p><small>
-                            <img src="{% static 'blog/image/eye-2x.png' %}" alt="view-count" title="view-count"> {{article.views}}</small>
-                        </p>
-                        <p><small>
-                            Tags: 
-                            {% for tag in article.tag.all %}
-                                <span>
-                                    <a href="{% url 'blog:tag' tag_name=tag.name %}" class="btn btn-light btn-sm tag" 
-role="button"><small>{{tag.name}}</small></a>
-                                </span>
-                            {% endfor %}</small>
-                        </p>
-                    </div>
-                    <div class="article-body">
-                        {{article.content|safe}}
-                    </div>
-                    {% if user.is_authenticated %}
-                    <div class="article-admin-options">
-                        <a href="{{article.get_admin_url}}" target="_blank" class="btn btn-primary btn-sm" role="button">Edit 
-this 
-article</a>
-                    </div>
-                    {% endif %}
-
-                    <div class="article-comments" id="article-comments">
-                        {% if show_comments %}
-                            <div id="disqus_thread"></div>
-                            <script>
-                                var disqus_config = function () {
-                                this.page.url = 'https://gpraz.xyz{{article.get_absolute_url}}';
-                                this.page.identifier = '{{article.uuid}}';
-                                this.page.title = '{{article.title}}';
-                                };
-                                (function() {
-                                var d = document, s = d.createElement('script');
-                                s.src = 'https://gpraz.disqus.com/embed.js';
-                                s.setAttribute('data-timestamp', +new Date());
-                                (d.head || d.body).appendChild(s);
-                                })();
-                            </script>
-                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                        {% else %}
-                            Comment section is hidden when DEBUG = True
+                    <article id="{{article.id}}">
+                        <header>
+                            <h1>{{article.title}}</h1>
+                        </header>
+                        <section class="main-content">
+                            <div class="article-body">
+                                {{article.content|safe}}
+                            </div>
+                        </section>
+                        <footer>
+                            <div class="article-detail">
+                                <p>
+                                    <img src="{% static 'blog/image/calendar-2x.png' %}" alt="date-created" title="date-created"><time datetime="{{article.created_at|date:'c'}}"> {{article.created_at|date:'d M Y'}}</time>
+                                    <img src="{% static 'blog/image/clock-2x.png' %}" alt="time-created" title="time-created"> {{article.created_at|date:'H:i'}}
+                                </p>
+                                <p>
+                                    <img src="{% static 'blog/image/person-2x.png' %}" alt="author" title="author"> gpraz
+                                </p>
+                                <p>
+                                    <img src="{% static 'blog/image/eye-2x.png' %}" alt="view-count" title="view-count"> {{article.views}}
+                                </p>
+                                <p>
+                                    Tags: 
+                                    {% for tag in article.tag.all %}
+                                        <span>
+                                            <a href="{% url 'blog:tag' tag_name=tag.name %}" class="btn btn-light btn-sm tag" role="button">{{tag.name}}</a>
+                                        </span>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </footer>
+                        {% if user.is_authenticated %}
+                        <div class="article-admin-options">
+                            <a href="{{article.get_admin_url}}" target="_blank" class="btn btn-primary btn-sm" role="button">Edit this article</a>
+                        </div>
                         {% endif %}
-                    </div>
+
+                        <div class="article-comments" id="article-comments">
+                            {% if show_comments %}
+                                <section class="comments">
+                                    <div id="disqus_thread"></div>
+                                    <script>
+                                        var disqus_config = function () {
+                                        this.page.url = 'https://gpraz.xyz{{article.get_absolute_url}}';
+                                        this.page.identifier = '{{article.uuid}}';
+                                        this.page.title = '{{article.title}}';
+                                        };
+                                        (function() {
+                                        var d = document, s = d.createElement('script');
+                                        s.src = 'https://gpraz.disqus.com/embed.js';
+                                        s.setAttribute('data-timestamp', +new Date());
+                                        (d.head || d.body).appendChild(s);
+                                        })();
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                </section>
+                            {% else %}
+                                Comment section is hidden when DEBUG = True
+                            {% endif %}
+                        </div>
+                    </article>
                 </div>
             </div>
 
