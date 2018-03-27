@@ -54,8 +54,10 @@
 
             <div class="col-md-4">
                 {% if user.is_authenticated %}
+                <div>
                     Welcome, {{user.username}}<br>
-                    <a href="{% url 'admin:blog_article_add' %}" class="btn btn-primary" role="button">Post new article</a>
+                    <a href="{% url 'admin:blog_article_add' %}" class="btn btn-primary btn-sm" role="button">Post new article</a>
+                </div>
                 {% endif %}
                 <div class="tag-list">
                     <p>Tags:</p>
