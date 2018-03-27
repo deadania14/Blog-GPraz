@@ -53,11 +53,11 @@
             </div>
 
             <div class="col-md-4">
+                {% if user.is_authenticated %}
+                    Welcome, {{user.username}}<br>
+                    <a href="{% url 'admin:blog_article_add' %}" class="btn btn-primary" role="button">Post new article</a>
+                {% endif %}
                 <div class="tag-list">
-                    {% if user.is_authenticated %}
-                        Welcome, {{user.username}}
-                        <a href="{% url 'admin:blog_article_add' %}" class="btn btn-primary" role="button">Post new article</a>
-                    {% endif %}
                     <p>Tags:</p>
                     {% for tag in tags %}
                         <span><a href="{% url 'blog:tag' tag_name=tag.name %}" class="btn btn-light btn-sm" role="button"><small>{{tag.name}}</small></a></span>
