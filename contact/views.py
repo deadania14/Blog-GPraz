@@ -24,7 +24,7 @@ def contact(request):
             send_mail(
                 'GPraz - Message from %s' % visitor_name,
                 'Sender email: %s\n\n%s' % (visitor_email, visitor_message),
-                secret.EMAIL_HOST_USER,
+                'GPraz <%s>' % secret.EMAIL_HOST_USER,
                 [secret.DEFAULT_MAIL_RECIPIENT],
                 fail_silently=False,
             )
